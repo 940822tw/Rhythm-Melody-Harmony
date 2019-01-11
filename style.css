@@ -1,0 +1,263 @@
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,500,700,900|Noto+Sans+KR:300,400,500,700,900');
+@font-face {
+  font-family: 'Helvetica-black';
+  src: url('HELVETICA-BLACK.woff') format('woff')
+}
+
+:root{
+  --underline:#000;
+}
+
+@font-face {
+  font-family: 'Helvetica-bold';
+  src: url('HELVETICA-bold.woff') format('woff')
+}
+
+* {
+  font-size: 24px;
+    word-break: keep-all;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: #FFFFFF;
+  margin: 0;
+  height: 100vh;
+  background-image: url("");
+  background-repeat: repeat-x;
+  background-size: cover;
+  animation: slide 1000s linear infinite;
+  -webkit-animation: slide 1000s linear infinite;
+  background-position: 0% 0vh;
+  overflow-y: hidden;
+  background-blend-mode: multiply;
+  font-family: 'Noto Sans KR', 'Noto Sans JP', sans-serif;;
+}
+
+#wrapper2{
+  position: fixed;
+  z-index: 10;
+}
+#english{
+  margin-right: 0px;
+}
+#l-title {
+  font-size: 24px;
+  font-family: 'Helvetica-bold', 'Noto Sans KR', 'Noto Sans JP', sans-serif;;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+}
+#l-title:hover{cursor: pointer;}
+.blend{background-image: url('');}
+
+ img{transition: 0.5s; display: inline-block;}
+ #map{width: 100%;}
+.invisible {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+.invisibleLang {
+  display: none !important;
+}
+
+.visibleLang {
+  display: block !important;
+}
+
+.title {
+  margin-left: 20px;
+  margin-top: 15px;
+  width: 70vw;
+  float: left;
+}
+
+.menu {
+  font-size: 24px;
+  font-weight: 700;
+  float: left;
+  width: 75vw;
+}
+
+.lang{
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  z-index: 99;
+ text-align: right;
+}
+
+ul {
+  margin-left: 20px;
+  padding-inline-start: 0px;
+}
+
+#l-menu li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 30px
+}
+.lang li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 30px
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+li>div {
+  height: 37px;
+}
+
+li>div:hover {
+  border-bottom: 3px var(--underline);
+  height: 34px;
+  cursor: pointer;
+}
+
+.link:hover{
+  border-bottom: 3px #000;
+  height: 34px;
+  cursor: pointer;
+  color: #0000ff;
+}
+.worklist:hover{
+  border-bottom: 3px #000;
+  height: 34px;
+  cursor: pointer;
+  color: #ffff00;
+}
+
+#l-footer{
+  width: 100%;
+  font-family: 'Helvetica-bold', 'Noto Sans KR', 'Noto Sans JP', sans-serif;;
+
+  text-align: center;
+  position: fixed;
+  bottom:10px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.underline {
+  border-bottom: 3px solid var(--underline);
+  height: 34px;
+}
+
+.indent {
+  margin-left: 32px;
+}
+
+.template {
+  font-size: 24px;
+  font-weight: 700;
+  margin-left: 20px;
+  overflow-y: scroll;
+  height: 70vh;
+  width: 60vw;
+  padding-right: calc(40vw - 20px);
+  float: left;
+}
+
+.template-right {
+  width: 20vw;
+  margin-right: 20px;
+  height: calc(100vh - 38px);
+  position: absolute;
+  right: 20px;
+  top: 28px;
+  z-index: 1;
+}
+
+#back{
+  position: fixed;
+  z-index: 0;
+  left: 0;
+  bottom:10;
+}
+
+.work-wrapper{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+}
+.work{width: 100vw;
+height: 100vh;}
+
+#workClose{
+  position: fixed;
+  left: 49vw;
+  z-index: 1000;
+  top: 10px;
+  font-size: 50px;
+}
+
+#workClose:hover{
+  cursor: pointer;
+  color: #ffff00;
+
+}
+#posterView{
+  width:50vw;
+  position: fixed;
+  right: 20px;
+  top: 110px;
+}
+
+#posterView img{
+  width: 100%;
+}
+
+/*.layer-2{
+z-index: 3;
+background-color: #777;
+height: 100vh;
+width: 100vw;
+left: 0vw;
+position: fixed;
+top:0px;
+visibility: hidden;
+}*/
+
+@keyframes slide {
+  from {
+    background-position: 0vw 0%
+  }
+  to {
+    background-position: -1000vw 0%
+  }
+}
+
+@-webkit-keyframes slide {
+  from {
+    background-position: 0vw 0%
+  }
+  to {
+    background-position: -1000vw 0%
+  }
+}
+[data-lang="eng"]{font-family: 'Helvetica-bold', 'Noto Sans KR', 'Noto Sans JP', sans-serif;}
+.menu [data-lang="eng"]{height: 30px}
+.menu [data-lang="eng"]:hover {height: 27px;}
+[data-lang="eng"] .template{
+  line-height: 1.38;
+}
+#korean div{margin-top: 2px;}
+#english div{font-family: 'Helvetica-bold', 'Noto Sans KR', 'Noto Sans JP', sans-serif; margin-top: -19px; height: 15px; line-height: 0;}
+
+
+iframe{
+  border: none;
+  width:100%;
+  height: 100vh;
+}

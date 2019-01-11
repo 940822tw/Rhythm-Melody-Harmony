@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>🎶Rhythm🎶Melody🎶Harmony🎶</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="script.js"></script>
+<script src="lib/p5.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="work.js"></script>
+<script src="sketch.js"></script>
+
+<body onmousemove="toggleFullScreen(document.body)">
+  <div class="work-wrapper invisible"></div>
+  <div style="width:1px; height:1px; margin:0px; position:fixed; opacity: 0.01; background-image:url('img/bg.jpg')"></div>
+  <div id="wrapper2">
+    <div id="l-title" class="title" data-lang="kor" onclick="toggle(1)">
+      프로토 2018 전시<br> 리듬, 멜로디, 하모니 展
+    </div>
+    <div id="l-title" class="title invisible" data-lang="eng" onclick="toggle(1)">
+      PROTO 2018 EXHIBITION<br> Rhythm, Melody, Harmony
+    </div>
+
+    <div id="l-lang" class="lang">
+      <li id="korean">
+        <div class="underline"><a onclick="korean()">한글</a></div>
+      </li>
+      <li id="english">
+        <div><a onclick="english()">ENGLISH</a></div>
+      </li>
+    </div>
+    <div id="l-menu" class="menu">
+      <ul>
+        <li>
+          <div class="menu_1 underline" data-lang="kor"><a onclick="toggle(1)">전시</a></div>
+          <div class="menu_1 underline invisible" data-lang="eng"><a onclick="toggle(1)">EXHIBITION</a></div>
+        </li>
+
+        <li>
+          <div class="menu_2" data-lang="kor"><a onclick="toggle(2)">작품</a></div>
+          <div class="menu_2 invisible" data-lang="eng"><a onclick="toggle(2)">WORKS</a></div>
+        </li>
+        <li>
+          <div class="menu_3" data-lang="kor"><a onclick="toggle(3)">그래픽</a></div>
+          <div class="menu_3 invisible" data-lang="eng"><a onclick="toggle(3)">GRAPHIC</a></div>
+        </li>
+        <li>
+          <div class="menu_4" data-lang="kor"><a onclick="toggle(4)">워크샵</a></div>
+          <div class="menu_4 invisible" data-lang="eng"><a onclick="toggle(4)">WORKSHOP</a></div>
+        </li>
+        <li>
+          <div class="menu_5" data-lang="kor"><a onclick="toggle(5)">정보</a></div>
+          <div class="menu_5 invisible" data-lang="eng"><a onclick="toggle(5)">INFO</a></div>
+        </li>
+      </ul>
+    </div>
+    <div data-lang="kor">
+      <div class="l-template-1 template">
+        <div id="sketch-holder"></div>
+        <li>
+          👋<br> 홍익대학교 시각디자인과 뉴미디어, HCI 소모임 PROTO입니다. 2017년 한글꼴연구회 회원님들과 함께 한 《Hyperlink 展, 2017》을 시작으로 올 해에도 홍문관 7층에 PROTO 회원님들의 작품을 펼칩니다.<br><br>PROTO에서는 코딩을 통해 다양한 매체, 인터랙션 작품을 시도하고 있습니다. 이번 《리듬, 멜로디, 하모니 展, 2018》에서는 '청각'을 주제로 다양한 인터랙션과 뉴미디어 작품을 선보이고자
+          합니다.
+        </li><br><br>
+
+      </div>
+      <div class="l-template-2 invisible template">
+        <img id="map" src="img/map.png">
+        🖼️<li>작품을 감상하시려면 클릭하세요.</li>
+        <div class="worklist" onclick="work('jiwoo')">퍼플 레인 — 고지우</div>
+        <div class="worklist">2018 여름의 재생목록 — 곽승현　 <span onclick="work('sh1')" class="worklist">1</span>　<span onclick="work('sh2')" class="worklist">2</span>　<span onclick="work('sh3')" class="worklist">3</span>　</div>
+        <div class="worklist" onclick="work('protong')">프로통 1호 — 김단하</div>
+        <div class="worklist" onclick="work('daeseop')">직관 — 김대섭</div>
+        <div class="worklist">🚧음악시각감상장치 — 김승언</div>
+        <div class="worklist" onclick="work('jueun')">레트로 뉴 스페이스 — 김주은</div>
+        <div class="worklist" onclick="work('sorim')">당신의 영화 — 이소림</div>
+        <div class="worklist" onclick="work('handeul')">서울: 리듬, 멜로디, 하모니 — 이한들</div>
+        <div class="worklist">오로라 — 이현서　 <span onclick="work('h1')" class="worklist">1</span>　<span onclick="work('h2')" class="worklist">2</span>　<span onclick="work('h3')" class="worklist">3</span>　<span onclick="work('h4')" class="worklist">4</span>　</div>
+        <div class="worklist" onclick="work('hyomin')">소음의 심상 — 장효민</div>
+        <div class="worklist"onclick="work('yukyoung')">기억 — 정유경</div>
+        <div class="worklist" onclick="work('yewon')">낭만고양이 — 조예원</div>
+        <div class="worklist" onclick="work('hojin')">현기증 — 최호진</div><br><br>
+      </div>
+      <div class="l-template-3 invisible template">
+        💻<br>
+        <div class="link"><a id="poster2">포스터, 리플렛 — 이정민</a></div>
+        +<br>
+        <div class="link"><a onclick="location.reload();">웹 — 엄태욱</a></div><br>
+        <br><br>
+        <div id="posterView" class="l-template-3 "><img id="posterImg" src="img/psA.png" onmouseover="this.src='img/psB.png'" onmouseout="this.src='img/psA.png'"></div>
+      </div>
+
+      <div class="l-template-4 invisible template">
+        🔨Workshop #02,
+        < Image to Sound><br> 이번 워크샵의 결과물은, 각자가 만들어낸 이미지가 사운드로 출력되는 모습을 보여주는 것이다. 이미지라 함은 그림이어도 좋고, 사진이어도 좋고, 심지어 우리가 움직이는 하나하나의 프레임이어도 좋다.<br><br> Hue(색), Saturation(채도), Brightness(밝기)에 따라 각 픽셀을 읽고, 이는 Pitch를 결정하여 랜덤한 사운드로 변환이 된다. 개별의 음은 아름답지는 않을 지라도, 하지만 이들이 모여서 만들어낸
+          소리는, 결국 화음, 멜로디가 될 것이다.
+          <br><br>
+          <img src="img/ws6.jpg"><br><br>
+          <img src="img/hojin1.jpeg" width="960px"><br><br>
+          <img src="img/hojin2.png" width="960px">
+          <img src="img/ws1.jpg"><br><br>
+          <img src="img/ws2.jpg"><br><br>
+          <img src="img/ws3.jpg"><br><br>
+          <img src="img/ws4.jpg"><br><br>
+          <img src="img/ws5.jpg"><br><br>
+          <img src="img/ws7.jpg"><br><br>
+
+
+          <br>
+      </div>
+      <div class="l-template-5 invisible template">
+        ℹ️ <br>전시 기간<br> 2018년 10월 1일 ~ 10월 5일<br><br> 전시 장소<br> R동 7층 서쪽 복도<br><br> 운영팀
+        <br> +82)10.4171.7894
+        <br> hiuproto@gmail.com
+      </div>
+    </div>
+    <div class="invisible" data-lang="eng">
+      <div class="l-template-1 template">
+        <li>
+          👋<br> We are PROTO, the new media and HCI club of Hongik University’s visual communication design major. Starting from « Hyperlink Exhibit, 2017 » with Hangeulggol, again this year we present our members’ work on the 7th Building R of Hongmun.
+          <br><br> PROTO is making an attempt to deviate from conventional paradigm of exhibition to try diverse medium and interaction in our works. In this year’s « Rhythm, Melody, Harmony Exhibit, 2018 » we are displaying diverse interaction and new
+          media works in the subject of ‘auditory’.
+        </li>
+      </div>
+      <div class="l-template-2 invisible template">
+        <img id="map" src="img/map.png">
+        🖼️<li>Click to browse.</li>
+        <div class="worklist" onclick="work('jiwoo')">Purple rain — Jiwoo Koh</div>
+        <div class="worklist">2018 Summer Playlist — Seunghyun Kwak　 <span onclick="work('sh1')" class="worklist">1</span>　<span onclick="work('sh2')" class="worklist">2</span>　<span onclick="work('sh3')" class="worklist">3</span>　</div>
+        <div class="worklist" onclick="work('protong')">Protong Vol.1 — Danha Kim</div>
+        <div class="worklist">🚧Intuition — Daeseob Kim</div>
+        <div class="worklist">🚧Visualizing music device — Seung-eon Kim</div>
+        <div class="worklist" onclick="work('jueun')">RETRO NEW SPACE — Jueun Kim</div>
+        <div class="worklist" onclick="work('sorim')">Your movie — Sorim Lee</div>
+        <div class="worklist" onclick="work('handeul')">Seoul: Rhythm, Melody, Harmony — Handeul Lee</div>
+        <div class="worklist">Aurora — Hyeonseo Lee　 <span onclick="work('h1')" class="worklist">1</span>　<span onclick="work('h2')" class="worklist">2</span>　<span onclick="work('h3')" class="worklist">3</span>　<span onclick="work('h4')" class="worklist">4</span>　</div>
+        <div class="worklist" onclick="work('hyomin')">imagery of noise — Hyomin Chang</div>
+        <div class="worklist" onclick="work('yukyoung')">my loving city! — Yukyung Jung</div>
+        <div class="worklist" onclick="work('yewon')">Meow — Yewon Cho</div>
+        <div class="worklist" onclick="work('hojin')">🚧Vertigo — Hojin Choi</div><br><br>
+      </div>
+      <div class="l-template-3 invisible template">
+        💻<br>
+        <div class="link"><a onclick="poster()">Poster, brochure — Jungmin Lee</a></div>
+        +<br>
+        <div class="link"><a onclick="location.reload();">Web — Te-euk</a></div>  <br><br>
+          <div id="posterView" class="l-template-3 "><img id="posterImg" src="img/psA.png" onmouseover="this.src='img/psB.png'" onmouseout="this.src='img/psA.png'"></div>
+      </div>
+      <div class="l-template-4 invisible template">
+        🔨Workshop #02,
+        < Image to Sound><br> The results of the workshop are sounds realized by everyone's images. The images consist of paintings, photos, and camera feeds from the front webcam.<br><br> The program interprets hue, saturation, and brightness of each pixel and translates the data into sound. Although potentially chaotic at first, eventually the collection of the sounds will become rhythm, melody, harmony.
+          <br><br>
+          <img src="img/ws6.jpg"><br><br>
+          <img src="img/ws1.jpg"><br><br>
+          <img src="img/ws2.jpg"><br><br>
+          <img src="img/ws3.jpg"><br><br>
+          <img src="img/ws4.jpg"><br><br>
+          <img src="img/ws5.jpg"><br><br>
+          <img src="img/ws7.jpg"><br><br>
+          <br>
+      </div>
+      <div class="l-template-5 invisible template">
+        ℹ️ <br>Date<br>Oct 1, ~ Oct 5, 2018<br><br>Location<br>Building R 7F West<br><br>HQ
+        <br> +82.10.4171.7894
+        <br> hiuproto@gmail.com
+      </div>
+    </div>
+    <div class="template-right"></div>
+    <div id="l-footer">http://rhythm-melody-harmony.com</div>
+
+  </div>
+  <div id="back" class="l-template-1"></div>
+</body>
+
+</html>
