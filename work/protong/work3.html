@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script></script>
+<link rel="stylesheet" href="../style.css">
+<script src="../processing.js"></script>
+<body>
+  <script data-processing-target="mycanvas" type="text/processing">
+  int cols = 30;
+int rows =30;
+float[][] current;
+float[][] previous;
+
+float dampening = 0.6;
+
+void setup() {
+size(screenWidth,screenHeight)
+cols = width;
+rows = height;
+current = new float[cols][rows];
+previous = new float[cols][rows];
+}
+
+void mouseDragged(){
+previous[mouseX][mouseY] = 255;
+
+}
+
+void draw() {
+background(50);
+loadPixels();
+for (int i= 2; i < cols-1; i++){
+for (int j = 3; j < rows-1; j++) {
+
+  current[i][j] = (
+  previous[i-1][j] +
+  previous[i+1][j] +
+  previous[i][j-1] +
+  previous[i][j+1]) / 2 -
+  current[i][j] ;
+
+  current[i][j] = current[i][j] * dampening;
+  int index = i + j * cols;
+  pixels[index] = color(previous[i][j]*255);
+
+
+}
+}
+updatePixels();
+
+float[][] temp = previous;
+previous = current;
+current = temp;
+}
+
+
+
+
+
+  </script>
+  <canvas id="mycanvas"></canvas>
+</body>
+</html>

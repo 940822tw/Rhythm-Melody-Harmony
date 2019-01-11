@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script></script>
+<link rel="stylesheet" href="../style.css">
+<script src="../processing.js"></script>
+<style>
+body{background-image: url("neo.gif");
+background-size: contain;}
+</style>
+
+<body>
+  <script data-processing-target="mycanvas" type="text/processing">
+  //import processing.sound.*;
+  PImage b;
+  Drop[] drops = new Drop[50];
+
+  void setup() {
+    size(screenWidth, screenHeight)
+    b = loadImage("neo.gif");
+    for(int i = 0; i < drops.length; i++) {
+    drops[i] = new Drop();
+    }
+  }
+
+  void draw() {
+    background(11,11,11,0);
+    for(int i = 0; i < drops.length; i++) {
+    drops[i].show();
+    drops[i].fall();
+
+  }
+  }
+
+  class Drop {
+    float x = random(width);
+    float y = random(-500,-100);
+    float yspeed = random(10,50);
+    float z = random(0, 20);
+    float len = random(10,150);
+
+    void fall() {
+      y =  y + yspeed;
+
+
+      if (y > height) {
+        y = random(-200,-100);
+
+      }
+    }
+
+    void show() {
+      float thick = random(1,8);
+      strokeWeight(thick);
+      stroke(189, 20,  random(0, 800), random(128, 255));
+      line(x,y,x,y+len);
+  }
+  }
+  </script>
+  <canvas id="mycanvas"></canvas>
+
+</body>
+</html>

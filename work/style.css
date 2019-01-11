@@ -1,0 +1,9 @@
+body{margin: 0;
+background-image: url(bg.png);
+background-repeat: repeat;
+width: 100vw;
+height: 100vh;
+}
+::-webkit-scrollbar {
+    display: none;
+}

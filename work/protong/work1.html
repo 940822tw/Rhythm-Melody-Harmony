@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script></script>
+<link rel="stylesheet" href="../style.css">
+<script src="../processing.js"></script>
+<body>
+  <script data-processing-target="mycanvas" type="text/processing">
+
+  void setup(){
+size(screenWidth,screenHeight);
+rectMode(CENTER);
+colorMode(HSB, 360, 60, 95, 100);
+background(#270acc);
+noFill();
+smooth();
+
+
+}
+void draw(){
+
+
+
+for(int i=0; i<1000; i=i+500)
+{
+
+  float rn1 = random(0,800);
+  float rn2 = random(0,950);
+  float rn3 = random(900);
+  float rn4 = random(40,900);
+  float rn5 = random(800);
+  strokeWeight(30)
+  stroke(random(100,360), random(100,360), random(100,360), random(300,330));
+     bezier(mouseX+mouseY, rn1, rn5, rn2, rn1,rn3,  rn1, rn5);
+
+}
+
+
+}
+
+
+
+  </script>
+  <canvas id="mycanvas"></canvas>
+</body>
+</html>

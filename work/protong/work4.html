@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script></script>
+<link rel="stylesheet" href="../style.css">
+<script src="../processing.js"></script>
+<body>
+  <script data-processing-target="mycanvas" type="text/processing">
+
+  float oldAngle=-100, oldDist, pas;
+  int  n=40;
+  boolean see=false;
+
+  void setup() {
+    size(screenWidth, screenHeight);
+    smooth();
+    pas=TWO_PI/40;
+    background(255);
+    strokeWeight(random(2,3));
+    //stroke(random(0,255),random(0,255),random(0,255),100);
+  }
+
+  void draw() {
+    stroke(random(0,255),random(0,255),random(0,255),45);
+    if (mousePressed) {
+      float an=atan2(mouseY-height/2, mouseX-width/2);
+      float d=dist(mouseX, mouseY, width/2, height/2);
+      if (oldAngle != -100) {
+         translate(width/2, height/2);
+        for (float a=0; a<TWO_PI; a+=pas) {
+          line(sin(oldAngle+a)*oldDist, cos(oldAngle+a)*oldDist, sin(an+a)*d, cos(an+a)*d);
+        }
+      }
+      oldAngle = an;
+      oldDist=d;
+   } else {
+    oldAngle=-100;
+   }
+  }
+
+
+
+  void mouseMoved() {
+    oldAngle=atan2(mouseY-height/2, mouseX-width/2);
+    oldDist=dist(mouseX, mouseY, width/2, height/2);
+  }
+
+  void keyReleased() {
+    if (key=='+') {
+      n++;
+    } else if (key=='-') {
+      n--;
+    } else if (keyCode==10) {
+      background(255);
+    }
+      n=constrain(n, 1, 200);
+      pas=TWO_PI/n;
+  }
+
+
+
+
+
+
+  </script>
+  <canvas id="mycanvas"></canvas>
+</body>
+</html>

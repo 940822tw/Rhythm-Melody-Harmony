@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script></script>
+<link rel="stylesheet" href="../style.css">
+<script src="../processing.js"></script>
+<body>
+  <script data-processing-target="mycanvas" type="text/processing">
+  //import processing.sound.*;
+  //import processing.sound.*;
+
+
+
+
+  FFT fft;
+
+
+  PImage img;
+  PImage img2;
+  PFont myFont;
+  int count;
+  int imageNumber;
+
+  float x = 0;
+  float y = 0;
+  float a = 1;
+  float speed = 0.5; //speed od square
+
+  //SoundFile file;
+
+
+  void setup() {
+    size(screenWidth,screenHeight)
+    noStroke();
+    smooth();
+
+    img = loadImage("cat1.png");
+    img2 = loadImage("cat2.png");
+    imageMode(CENTER);
+
+
+  }
+
+
+
+
+
+  void draw() {
+    background(0);
+
+
+  myFont = createFont("Concert One", 14);
+    textFont(myFont);
+    textAlign(TOP, TOP);
+    text("Click!", pmouseX, 90);
+
+
+
+    for (float x =40; x<screenWidth; x+=40) {
+      for (float y = 50; y<screenHeight; y+=50) {
+        float angle = atan2(mouseY-y, mouseX-x);
+        colorMode(HSB);
+        fill(random(0,mouseX),random(0,mouseY),255);
+        pushMatrix();
+        translate(x, y);
+        rotate(angle);
+        ellipse(0,0,a,30);
+        popMatrix();
+      }
+    }
+    if (mouseX<=screenWidth/2){
+      a=a+speed;
+      speed=speed*-1.2;
+    }else {
+      a=a-speed;
+      speed=speed*-1.2;
+    }
+    if (abs(speed)>50){
+      speed*=0.5;
+  }
+
+   if (mouseX>=1000){
+
+   }
+
+
+
+    if (count == 0) {
+      if (imageNumber == 0) {
+        image(img, mouseX,mouseY, 300,300);
+      }
+      if (imageNumber == 1) {
+        image(img2, mouseX, mouseY, 300,300);
+      }
+      imageNumber = (imageNumber + 2)%3;
+    }
+
+
+    if (mousePressed == true) {
+
+    }
+
+
+
+  if (mouseX<=700){
+
+  } else {
+
+  }
+
+
+  if(700<mouseX&&mouseX<1000) {
+
+
+  } else {
+
+  }
+
+
+  }
+  </script>
+  <canvas id="mycanvas"></canvas>
+</body>
+</html>

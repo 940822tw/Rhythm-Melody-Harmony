@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script></script>
+<link rel="stylesheet" href="../style.css">
+<script src="../processing.js"></script>
+<body>
+  <script data-processing-target="mycanvas" type="text/processing">
+  void setup(){
+  size(screenWidth,screenHeight);
+  background(#000000);
+
+  noFill();
+
+  }
+
+  void draw(){
+   line(mouseY,mouseY+100,mouseX,mouseY);
+   stroke(#ffffff);
+
+  }
+
+
+
+
+  </script>
+  <canvas id="mycanvas"></canvas>
+</body>
+</html>
